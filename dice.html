@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dice Roller</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .dice {
+      font-size: 5rem;
+      margin: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff7a5a;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #ff4f1d;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1> Dice Roller</h1>
+  <div id="dice" class="dice">⚀</div>
+  <button id="rollBtn">Roll Dice</button>
+
+  <footer>Made with ❤️ using HTML, CSS & JavaScript</footer>
+
+  <script>
+    const dice = document.getElementById("dice");
+    const rollBtn = document.getElementById("rollBtn");
+
+    rollBtn.addEventListener("click", () => {
+      const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+      dice.style.transform = "rotate(360deg)";
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * 6);
+        dice.textContent = diceFaces[randomIndex];
+        dice.style.transform = "rotate(0deg)";
+      }, 300);
+    });
+  </script>
+</body>
+</html>
